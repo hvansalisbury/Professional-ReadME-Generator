@@ -73,16 +73,20 @@ function writeToFile(fileName, data) {
     inquirer
         .prompt(questions)
         .then((answers) => {
-            console.log(answers)
             const readmeContent = generateMarkdown(answers);
-            fs.writeFile('READEME.md', readmeContent, (err) =>
-                err ? console.log(err) : console.log('Successfully created READme.md')
-            );
+            if (readmeContent === '') {
+                console.log('README.md not created. Please try again.')
+            } else {
+                fs.writeFile('README.md', readmeContent, (err) =>
+                    err ? console.log(err) : console.log('Successfully created README.md')
+                )
+            };
         })
 };
 
 // TODO: Create a function to initialize app
 function init() {
+    console.log('Title, Description, Usage and either a Github username or an email is required.')
     writeToFile();
 };
 
