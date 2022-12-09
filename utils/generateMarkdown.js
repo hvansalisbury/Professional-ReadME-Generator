@@ -18,12 +18,7 @@ const licenseInfo = {
 // the following functions are used to generate the content for each section, if blank, it returns an empty string
 // function to render title section
 function renderTitle(title) {
-  if (title === '') {
-    console.log('A title is required')
-    return ''
-  } else {
-    return `# ${title}\n`
-  }
+  return `# ${title}\n`
 }
 // function to render a badge for the license
 function renderLicenseBadge(license) {
@@ -35,12 +30,7 @@ function renderLicenseBadge(license) {
 }
 // function to render description section
 function renderDescription(description) {
-  if (description === '') {
-    console.log('A description is required')
-    return ''
-  } else {
-    return `\n## Description\n\n${description}\n`
-  }
+  return `\n## Description\n\n${description}\n`
 }
 // function to render table of contents
 function renderTOC(installation, usage, license, contributing, tests, githubUsername, email) {
@@ -86,12 +76,7 @@ function renderInstallation(installation) {
 }
 // function to render usage section
 function renderUsage(usage) {
-  if (usage === '') {
-    console.log('Usage is required')
-    return ''
-  } else {
-    return `\n## Usage\n\n${usage}\n`
-  }
+  return `\n## Usage\n\n${usage}\n`
 }
 // function to render license section
 function renderLicenseSection(license) {
@@ -125,9 +110,6 @@ function renderQuestions(githubUsername, email) {
     return `\n## Questions\n\nShould you have any questions, please reach out to me on my [Github Profile](https://github.com/${githubUsername})\n`
   } else if (email !== '') {
     return `\n## Questions\n\nShould you have any questions, please email me at ${email}.\n`
-  } else {
-    console.log('A Github username or email is required')
-    return ''
   }
 }
 // this function creates the entire contents of the readme file
@@ -141,7 +123,8 @@ function generateMarkdown(data) {
     console.log('Please submit a Github username or an email.')
     return ''
   } else {
-  return `${renderTitle(data.title)}${renderLicenseBadge(data.license)}${renderDescription(data.description)}${renderTOC(data.installation, data.usage, data.license, data.contributing, data.tests, data.githubUsername, data.email)}${renderInstallation(data.installation)}${renderUsage(data.usage)}${renderLicenseSection(data.license)}${renderContributing(data.contributing)}${renderTests(data.tests)}${renderQuestions(data.githubUsername, data.email)}`
-}}
+    return `${renderTitle(data.title)}${renderLicenseBadge(data.license)}${renderDescription(data.description)}${renderTOC(data.installation, data.usage, data.license, data.contributing, data.tests, data.githubUsername, data.email)}${renderInstallation(data.installation)}${renderUsage(data.usage)}${renderLicenseSection(data.license)}${renderContributing(data.contributing)}${renderTests(data.tests)}${renderQuestions(data.githubUsername, data.email)}`
+  }
+}
 // links this file to index.js so it can use the outcome of these functions to create the readme file
 module.exports = generateMarkdown;
