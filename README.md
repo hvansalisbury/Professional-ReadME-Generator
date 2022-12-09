@@ -1,6 +1,6 @@
 # aa
 
-[![badge](https://img.shields.io/badge/license-Apache_License_2.0-purple)](https://choosealicense.com/licenses/apache-2.0)
+[![badge](https://img.shields.io/badge/license-MIT_License-purple)](https://choosealicense.com/licenses/mit)
 
 ## Description
 
@@ -25,9 +25,9 @@ aa
 
 ## License
 
-[![badge](https://img.shields.io/badge/license-Apache_License_2.0-purple)](https://choosealicense.com/licenses/apache-2.0)
+[![badge](https://img.shields.io/badge/license-MIT_License-purple)](https://choosealicense.com/licenses/mit)
 
-This application is covered under the [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0) license.
+This application is covered under the [MIT License](https://choosealicense.com/licenses/mit) license.
 
 ## Contributing
 
@@ -39,4 +39,4 @@ aa
 
 ## Questions
 
-Should you have any questions, please email me at aa and reach out to me on my [Github Profile](https://github.com/aa)
+Should you have any questions, please [email](aa) me and reach out to me on my [Github Profile](https://github.com/aa)

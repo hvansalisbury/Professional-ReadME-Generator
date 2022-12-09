@@ -39,21 +39,13 @@ function renderTOC(installation, usage, license, contributing, tests, githubUser
   } else {
     installTOC = '\n- [Installation](#installation)';
   }
-  if (usage === '') {
-    var usageTOC = '';
-  } else {
-    usageTOC = '\n- [Usage](#usage)';
-  }
+  const usageTOC = '\n- [Usage](#usage)';
   if (license === 'None') {
     var licenseTOC = '';
   } else {
     licenseTOC = '\n- [License](#license)';
   }
-  if (contributing === '') {
-    var contributingTOC = '';
-  } else {
-    contributingTOC = '\n- [Contributing](#contributing)';
-  }
+  const contributingTOC = '\n- [Contributing](#contributing)';
   if (tests === '') {
     var testsTOC = '';
   } else {
@@ -105,11 +97,11 @@ function renderTests(tests) {
 // function to render questions section
 function renderQuestions(githubUsername, email) {
   if (githubUsername !== '' && email !== '') {
-    return `\n## Questions\n\nShould you have any questions, please email me at ${email} and reach out to me on my [Github Profile](https://github.com/${githubUsername})\n`;
+    return `\n## Questions\n\nShould you have any questions, please [email](${email}) me and reach out to me on my [Github Profile](https://github.com/${githubUsername})\n`;
   } else if (githubUsername !== '') {
     return `\n## Questions\n\nShould you have any questions, please reach out to me on my [Github Profile](https://github.com/${githubUsername})\n`;
   } else if (email !== '') {
-    return `\n## Questions\n\nShould you have any questions, please email me at ${email}.\n`;
+    return `\n## Questions\n\nShould you have any questions, please [email](${email}) me.\n`;
   };
 };
 // this function creates the entire contents of the readme file
