@@ -1,3 +1,4 @@
+// object of the licenses, and the proper syntax to generate the badges and link to the license on choosealicense.com
 const licenseInfo = {
   'None': { badge: '', url: '' },
   'Apache License 2.0': { badge: 'Apache_License_2.0', url: 'apache-2.0' },
@@ -14,7 +15,8 @@ const licenseInfo = {
   'Mozilla Public License 2.0': { badge: 'Mozilla_Public_License_2.0', url: 'mpl-2.0' },
   'The Unlicense': { badge: 'The_Unlicense', url: 'unlicense' }
 }
-
+// the following functions are used to generate the content for each section, if blank, it returns an empty string
+// function to render title section
 function renderTitle(title) {
   if (title === '') {
     console.log('A title is required')
@@ -23,7 +25,7 @@ function renderTitle(title) {
     return `# ${title}\n`
   }
 }
-
+// function to render a badge for the license
 function renderLicenseBadge(license) {
   if (license === 'None') {
     return '';
@@ -31,7 +33,7 @@ function renderLicenseBadge(license) {
     return `\n[![badge](https://img.shields.io/badge/license-${licenseInfo[license]['badge']}-purple)](https://choosealicense.com/licenses/${licenseInfo[license]['url']})\n`
   }
 }
-
+// function to render description section
 function renderDescription(description) {
   if (description === '') {
     console.log('A description is required')
@@ -40,7 +42,7 @@ function renderDescription(description) {
     return `\n## Description\n\n${description}\n`
   }
 }
-
+// function to render table of contents
 function renderTOC(installation, usage, license, contributing, tests, githubUsername, email) {
   if (installation === '') {
     var installTOC = ''
@@ -74,7 +76,7 @@ function renderTOC(installation, usage, license, contributing, tests, githubUser
   }
   return `\n## Table of Contents\n${installTOC}${usageTOC}${licenseTOC}${contributingTOC}${testsTOC}${questionsTOC}\n`
 }
-
+// function to render installation section
 function renderInstallation(installation) {
   if (installation === '') {
     return ''
@@ -82,7 +84,7 @@ function renderInstallation(installation) {
     return `\n## Installation\n\n${installation}\n`
   }
 }
-
+// function to render usage section
 function renderUsage(usage) {
   if (usage === '') {
     console.log('Usage is required')
@@ -91,7 +93,7 @@ function renderUsage(usage) {
     return `\n## Usage\n\n${usage}\n`
   }
 }
-
+// function to render license section
 function renderLicenseSection(license) {
   if (license === 'None') {
     return '';
@@ -99,7 +101,7 @@ function renderLicenseSection(license) {
     return `\n## License\n\n[![badge](https://img.shields.io/badge/license-${licenseInfo[license]['badge']}-purple)](https://choosealicense.com/licenses/${licenseInfo[license]['url']})\n\nThis application is covered under the [${license}](https://choosealicense.com/licenses/${licenseInfo[license]['url']}) license.\n`
   }
 }
-
+// function to render contributing section
 function renderContributing(contributing) {
   if (contributing === '') {
     return `\n## Contributing\n\nAt this time, I am not looking for any additional contributors for this project.\n`
@@ -107,7 +109,7 @@ function renderContributing(contributing) {
     return `\n## Contributing\n\n${contributing}\n`
   }
 }
-
+// function to render tests section
 function renderTests(tests) {
   if (tests === '') {
     return ''
@@ -115,7 +117,7 @@ function renderTests(tests) {
     return `\n## Tests\n\n${tests}\n`
   }
 }
-
+// function to render questions section
 function renderQuestions(githubUsername, email) {
   if (githubUsername !== '' && email !== '') {
     return `\n## Questions\n\nShould you have any questions, please email me at ${email} and reach out to me on my [Github Profile](https://github.com/${githubUsername})\n`
@@ -128,18 +130,10 @@ function renderQuestions(githubUsername, email) {
     return ''
   }
 }
-
+// this function creates the entire contents of the readme file
+// if any of the required fields are missing, the content will be an empty string
 function generateMarkdown(data) {
   const { title, description, installation, usage, license, contributing, tests, githubUsername, email } = data;
-  console.log(data.title)
-  console.log(data.description)
-  console.log(data.installation)
-  console.log(data.usage)
-  console.log(data.license)
-  console.log(data.contributing)
-  console.log(data.tests)
-  console.log(data.githubUsername)
-  console.log(data.email)
   if (data.title === '' || data.description === '' || data.usage === '') {
     console.log('Title, Description, Usage and either a Github username or an email is required.')
     return ''
@@ -149,5 +143,5 @@ function generateMarkdown(data) {
   } else {
   return `${renderTitle(data.title)}${renderLicenseBadge(data.license)}${renderDescription(data.description)}${renderTOC(data.installation, data.usage, data.license, data.contributing, data.tests, data.githubUsername, data.email)}${renderInstallation(data.installation)}${renderUsage(data.usage)}${renderLicenseSection(data.license)}${renderContributing(data.contributing)}${renderTests(data.tests)}${renderQuestions(data.githubUsername, data.email)}`
 }}
-
+// links this file to index.js so it can use the outcome of these functions to create the readme file
 module.exports = generateMarkdown;
