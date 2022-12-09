@@ -77,17 +77,17 @@ function writeToFile(fileName, data) {
         .then((answers) => {
             const readmeContent = generateMarkdown(answers);
             if (readmeContent === '') {
-                console.log('README.md not created. Please try again.')
+                console.log('README.md not created. Please try again.');
             } else {
                 fs.writeFile('README.md', readmeContent, (err) =>
                     err ? console.log(err) : console.log('Successfully created README.md')
-                )
+                );
             };
-        })
+        });
 };
 // this function runs when the file is called. it lets the user know what is required.
 function init() {
-    console.log('Title, Description, Usage and either a Github username or an email is required.')
+    console.log('Title, Description, Usage and either a Github username or an email is required.');
     writeToFile();
 };
 // executes init function
