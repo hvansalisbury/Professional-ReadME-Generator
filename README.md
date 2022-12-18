@@ -10,6 +10,7 @@ This is a command line tool that will prompt the user to respond to questions an
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Walkthrough](#walkthrough)
 - [License](#license)
 - [Tests](#tests)
 - [Questions](#questions)
@@ -21,6 +22,10 @@ The user must have Node.js installed as well as npm inquirer.js. Then the user m
 ## Usage
 
 Open the command line to the folder index.js is stored. Then type node index.js in the command line. You will then be prompted a series of questions. Answer each question. The responses will be used to populate the README.md file. Some fields are required and the README will not be generated if they left blank.
+
+## Walkthrough
+
+[Walkthrough video](https://drive.google.com/file/d/1oq4Qz4mwYUSHkxOSfbI3HQVv0Cl96HBS/view)
 
 ## License
 
